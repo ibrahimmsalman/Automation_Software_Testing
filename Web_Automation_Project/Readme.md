@@ -1,0 +1,1 @@
+Automation Testing for "https://awesomeqa.com/ui/index.php?route=common/home" website using combination of Selenium, TestNG and cucumber framework
