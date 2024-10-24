@@ -3,10 +3,12 @@ package Step_Def;
 import Pages.Login_page;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -91,7 +93,7 @@ public class Login_step_def {
     @When("User Enters Invalid Email")
     public void User_Enters_Invalid_Email() {
         // Accepts invalid email input
-        loginpage_obj.Invalid_Email().sendKeys("150");                                            /*need to complete*/
+        loginpage_obj.Invalid_Email().sendKeys("fipipay684@rowplant.com");                                            /*need to complete*/
     }
 
     // Step definition for verifying error message on invalid credentials
@@ -159,7 +161,7 @@ public class Login_step_def {
 
     @And("User Enter The Desired Product")
     public void User_Enter_The_Desired_Product() {
-        loginpage_obj.Clicks_On_Search_TextBox().sendKeys("Apple Cinema 30");
+        loginpage_obj.Clicks_On_Search_TextBox().sendKeys("Mac");
     }
 
     @And("User Clicks On Search Button")
@@ -219,8 +221,12 @@ public class Login_step_def {
         Thread.sleep(2000);
         act.moveToElement(el4).perform();
         Thread.sleep(2000);
+    }
 
 
+    @Then("User Can See subcategories")
+    public void userCanSeeSubcategories() {
+        loginpage_obj.SeeSubcategories();
     }
 
     @And("User Can Add Item To Wishlist")
@@ -229,7 +235,7 @@ public class Login_step_def {
     }
 
     @Then("User Can See A Wishlist Confirmation Msg")
-    public void User_Can_See_A_Wishlist_Confirmation_Msg() {
+    public void User_Can_See_A_Wishlist_Confirmation_Msg() throws InterruptedException {
         loginpage_obj.See_A_Wishlist_Confirmation_Msg();
     }
 
@@ -240,13 +246,13 @@ public class Login_step_def {
     }
 
     @Then("User Can See A Compare List Confirmation Msg")
-    public void User_Can_See_A_Compare_List_Confirmation_Msg() {
+    public void User_Can_See_A_Compare_List_Confirmation_Msg() throws InterruptedException {
         loginpage_obj.CompareListConfirmationMsg();
     }
 
-    @And("User Enter The Desired Product iMac")
-    public void User_Enter_The_Desired_Product_iMac() {
-        loginpage_obj.Clicks_On_Search_TextBox().sendKeys("iMac");
+    @And("User Enter The Desired Product Mac")
+    public void User_Enter_The_Desired_Product_Mac() {
+        loginpage_obj.Clicks_On_Search_TextBox().sendKeys("Mac");
     }
 
     @And("User Can Add Item To Shipping Cart")
@@ -255,8 +261,261 @@ public class Login_step_def {
     }
 
     @Then("User Can See A Shipping Cart Confirmation Msg")
-    public void userCanSeeAShippingCartConfirmationMsg() {
+    public void userCanSeeAShippingCartConfirmationMsg() throws InterruptedException {
         loginpage_obj.See_A_Shipping_Cart_Confirmation_Msg();
     }
 
+    @And("User Go to WishList")
+    public void userGoToWishList() {
+        loginpage_obj.GoToWishList().click();
+    }
+
+
+
+
+    /* **************************************************************************************************************
+    @When("User Can Choose One Of List Elements")
+    public void userCanChooseOneOfListElements() {
+        loginpage_obj.ChooseOneOfListElements();
+    }
+
+
+    @Then("User Can See A Sorting Confirmation Msg")
+    public void userCanSeeASortingConfirmationMsg() {
+        loginpage_obj.SeeASortingConfirmationMsg();
+    }
+
+*/
+    @When("User Can Choose One Of List Elements")
+    public void userCanChooseOneOfListElements() {
+        loginpage_obj.ChooseOneOfListElements();
+    }
+
+    @Then("User Can See A Sorting Confirmation Msg")
+    public void userCanSeeASortingConfirmationMsg() {
+        loginpage_obj.SeeASortingConfirmationMsg();
+    }
+
+    /* ***************************************************************************************************************/
+
+    @Given("User Navigate To Search Page")
+    public void UserNavigateToSearchPage() {
+        loginpage_obj.Navigate_TO_Search_page();
+    }
+
+    @When("User Clicks On Search in subcategories Check Button")
+    public void userClicksOnSearchInSubcategoriesCheckButton() {
+        loginpage_obj.ClicksOnSearchInSubcategoriesCheckButton().click();
+    }
+
+    @When("User Choose The subcategories")
+    public void userChooseTheSubcategories() {
+        loginpage_obj.ChooseTheSubcategories();
+    }
+
+    @When("User Clicks On Search subcategories Button")
+    public void userClicksOnSearchSubcategoriesButton() {
+        loginpage_obj.Clicks_On_Search_Subcategories_Button().click();
+    }
+
+    @When("User Enter The Desired Product subcategories Mac")
+    public void userEnterTheDesiredProductSubcategoriesMac() {
+        loginpage_obj.EnterTheDesiredProductSubcategoriesMac().sendKeys("Mac");
+    }
+
+    @Then("User Can See A subcategories searching Confirmation Msg")
+    public void userCanSeeASubcategoriesSearchingConfirmationMsg() {
+        loginpage_obj.SeeASubcategoriesSearchingConfirmationMsg();
+    }
+
+    /* **************************************************************************************************************/
+    @When("User Clicks On swiper prev button")
+    public void userClicksOnSwiperPrevButton() {
+    }
+
+    @And("User Scroll Down")
+    public void userScrollDown() {
+        loginpage_obj.ScrollDown();
+    }
+
+    @Then("User Can See Prev And Next Swiper Buttons")
+    public void userCanSeeAnotherItem() {
+        loginpage_obj.ShowingPrevAndNextSwiperButtons();
+    }
+
+    @When("User Hovers to Image")
+    public void userHoversToImage() throws InterruptedException {
+        WebElement el1 = loginpage_obj.HoversToImage();
+        act.moveToElement(el1).perform();
+        Thread.sleep(2000);
+    }
+
+    @And("User Hovers to Add To Wish List Icon")
+    public void userHoversToAddToWishListIcon() throws InterruptedException {
+        WebElement icon = loginpage_obj.HoverToIcon();
+        act.moveToElement(icon).perform();
+        Thread.sleep(2000);
+    }
+
+    @Then("User Can See The Changed Color")
+    public void userCanSeeTheChangedColor() {
+        loginpage_obj.CheckTheChangedColorOfIcon();
+    }
+
+
+    @And("User Clicks On Logo Button")
+    public void userClicksOnLogoButton() {
+        loginpage_obj.ClickingOnLogo().click();
+    }
+
+    @Then("User Should Navigate To Home Page")
+    public void userShouldNavigateToHomePage() {
+        loginpage_obj.CheckHomePage();
+    }
+
+    @And("User Select Logout From My Account List")
+    public void userSelectLogoutFromMyAccountList()   {
+        loginpage_obj.SelectingLogoutFromMyAccountList();
+    }
+
+    @Then("User Should Navigate To Logout Page")
+    public void userShouldNavigateToLogoutPage()   {
+        loginpage_obj.CheckLogoutPage();
+    }
+
+    @And("User Clicks On Change Your Password")
+    public void userClicksOnChangeYourPassword()  {
+        loginpage_obj.ClickingOnChangingPassword().click();
+    }
+
+    @And("User Enters New Password And Conformation Password")
+    public void userEntersNewPasswordAndConformationPassword() {
+        loginpage_obj.EnterPasswordAndConfirmationPassword();
+    }
+
+    @And("User Clicks On Password Continue Button")
+    public void userClicksOnPasswordContinueButton() {
+        loginpage_obj.ClickingOnContinueButton().click();
+    }
+
+    @Then("User Gets An Assertion Changed Password Msg")
+    public void userGetsAssertionMsg() {
+        loginpage_obj.PasswordChangedMsg();
+    }
+
+    @And("User Enters New Password And Wrong Conformation Password")
+    public void userEntersNewPasswordAndWrongConformationPassword() {
+        loginpage_obj.EnterPasswordAndWrongConfirmationPassword();
+    }
+
+    @Then("User Gets An Failed Changed Password Msg")
+    public void userGetsAnFailedChangedPasswordMsg() {
+        loginpage_obj.PasswordFailedChangedMsg();
+    }
+
+    @And("User Select Main Categories Randomly")
+    public void userSelectMainCategoriesRandomly() {
+        loginpage_obj.SelectMainCategoriesRandomly();
+    }
+
+
+    @And("User Select Main and Sub Categories Randomly")
+    public void userSelectMainAndSubCategoriesRandomly()  {
+        loginpage_obj.Select_Main_and_Sub_Categories_Randomly();
+    }
+
+    @And("User Goes To Checkout")
+    public void userGoesToCheckout() throws InterruptedException {
+        loginpage_obj.GoesToCheckout().click();
+        Thread.sleep(2000);
+    }
+
+    @And("User Enters Valid First Name Checkout")
+    public void userEntersValidFirstNameCheckout() throws InterruptedException {
+        Thread.sleep(2000);
+        loginpage_obj.EntersValidFirstNameCheckout().sendKeys("Mohammed");
+    }
+
+
+    @And("User Enters Valid Last Name Checkout")
+    public void userEntersValidLastNameCheckout() {
+        loginpage_obj.EntersValidLastNameCheckout().sendKeys("Ahmed");
+    }
+
+    @And("User Enters Valid Address Checkout")
+    public void userEntersValidAddressCheckout() {
+        loginpage_obj.EntersValidAddressCheckout().sendKeys("Dakahlia");
+    }
+
+    @And("User Enters Valid City Checkout")
+    public void userEntersValidCityCheckout() {
+        loginpage_obj.EntersValidCityCheckout().sendKeys("Mansoura");
+    }
+
+
+    @And("User Enters Valid Post Code Checkout")
+    public void userEntersValidPostCodeCheckout() {
+        loginpage_obj.EntersValidPostCodeCheckout().sendKeys("123456");
+    }
+
+
+    @And("User Chooses Valid Country Checkout")
+    public void userChoosesValidCountryCheckout() {
+        loginpage_obj.ChoosesValidCountryCheckout();
+    }
+
+
+    @And("User Chooses Valid Region Checkout")
+    public void userChoosesValidRegionCheckout() throws InterruptedException {
+        Thread.sleep(2000);
+        loginpage_obj.ChoosesValidRegionCheckout();
+    }
+
+    @And("User Clicks On Continue Button Billing Checkout")
+    public void userClicksOnContinueButtonBillingCheckout() throws InterruptedException {                // done
+        Thread.sleep(3000);
+        loginpage_obj.ClicksOnContinueButtonBillingCheckout().click();
+    }
+
+
+
+    @And("User Clicks On Continue Button Delivery Checkout")
+    public void userClicksOnContinueButtonDeliveryCheckout() throws InterruptedException {              // done
+        Thread.sleep(5000);
+        loginpage_obj.ClicksOnContinueButtonDeliveryCheckout().click();
+    }
+
+    @And("User Clicks On Continue Button Delivery Method Checkout")
+    public void userClicksOnContinueButtonDeliveryMethodCheckout() throws InterruptedException {       //done
+        Thread.sleep(5000);
+        loginpage_obj.ClicksOnContinueButtonDeliveryMethodCheckout().click();
+    }
+    @And("User Clicks On Continue Button Confirm Order Checkout")
+    public void userClicksOnContinueButtonConfirmOrderCheckout() throws InterruptedException {
+        Thread.sleep(5000);
+        loginpage_obj.ClicksOnContinueButtonConfirmOrderCheckout().click();                  // done
+    }
+
+    @And("User Clicks On Terms Check Button Checkout")
+    public void userClicksOnTermsCheckButtonCheckout() throws InterruptedException {          // done
+        Thread.sleep(5000);
+        loginpage_obj.ClicksOnTermsCheckButtonCheckout().click();
+    }
+
+    @And("User Clicks On Continue Button Payment Method Checkout")
+    public void userClicksOnContinueButtonPaymentMethodCheckout() throws InterruptedException {
+        Thread.sleep(5000);// done
+        loginpage_obj.ClicksOnContinueButtonPaymentMethodCheckout().click();
+    }
+
+    @Then("User Can Create an order with a successful payment")
+    public void userCanCreateAnOrderWithASuccessfulPayment() throws InterruptedException {      // done
+        Thread.sleep(5000);
+        loginpage_obj.CreateAnOrderWithASuccessfulPayment();
+    }
+
+
 }
+
+
+
